@@ -1,4 +1,7 @@
+import org.jetbrains.annotations.Nullable
+
 data class Post(
+    @Nullable
     var id: Int,
     val ownerId: Int = 0,
     val fromId: Int = 0,
@@ -9,12 +12,15 @@ data class Post(
     val replyPostId: Int = 0,
     val friendsOnly: Int = 0,
     val comments: Comments,
-    val copyright: Copyright,
+    val copyright: Copyright?,
     val likes: Likes,
     val reposts: Reposts,
     val views: Views,
-    //val postType: PostType,
+    val postType: String?,
+    val postSource: PostSource,
+    val geo: Geo?,
     val signerId: Int = 0,
+    val copyHistory: Array<Any?>?,
     val canPin: Boolean = false,
     val canDelete: Boolean = false,
     val canEdit: Boolean = false,
@@ -22,7 +28,7 @@ data class Post(
     val markedAsAds: Boolean = false,
     val isFavorite: Boolean = false,
     val donut: Donut,
-    val postponedId: Int = 0
+    val postponedId: Int? = 0
     )
 
 //    val id - id записи
